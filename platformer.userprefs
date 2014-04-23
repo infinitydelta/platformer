@@ -1,17 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.cs">
     <Files>
-      <File FileName="Assets\Player.cs" Line="25" Column="43" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Player\Shield.cs">
-    <Files>
-      <File FileName="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Enemy.cs" Line="26" Column="32" />
-      <File FileName="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Player\AutoLaser.cs" Line="12" Column="30" />
-      <File FileName="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Star.cs" Line="9" Column="33" />
-      <File FileName="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Player\Shield.cs" Line="77" Column="89" />
->>>>>>> 9aadbefb28a37a02543c431111c2e093f89a7ce6
+      <File FileName="Assets\Scripts\Projectile.cs" Line="22" Column="44" />
+      <File FileName="Assets\Scripts\CameraScript.cs" Line="6" Column="29" />
+      <File FileName="Assets\Scripts\Player.cs" Line="68" Column="75" />
+      <File FileName="Assets\Scripts\Enemy.cs" Line="29" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -4,14 +4,22 @@ using System.Collections;
 public class Player : MonoBehaviour {
 	bool moving, movingX, movingY, jumping;
 
-	public int regularSpeed = 5;
+	public int startSpeed = 7;
 	public int speed;
 	public float stoppingFriction = .85f;
 	public GameObject projectile;
 	public GameObject gunTip;
+	public int jumpStrength = 16;
+	//
+	public string left = "a";
+	public string right ="d";
+	public string jump = "space";
+	public string jump2 = "w";
+	public string shoot = "j";
+	
 	// Use this for initialization
 	void Start () {
-		speed = regularSpeed;
+		speed = startSpeed;
 	}
 	
 	// Update is called once per frame
@@ -44,24 +52,24 @@ public class Player : MonoBehaviour {
 	}
 
 	void controls() {
-		if (Input.GetKey (KeyCode.A)) {
+		if (Input.GetKey (left)) {
 			movingX = true;
 			transform.localScale = new Vector3(-1,1,1);
 			rigidbody2D.velocity = new Vector2(-speed, rigidbody2D.velocity.y);	
 		}
-		if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey (right)) {
 			movingX = true;
 			transform.localScale = new Vector3(1,1,1);
 			rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);	
 		}
 
-		if (Input.GetKey(KeyCode.Space) && !movingY) {
+		if ((Input.GetKey(jump) || Input.GetKey(jump2))&& !movingY) {
 			//rigidbody2D.AddForce(new Vector2(0, 400));
-			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 16);
+			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpStrength);
 			movingY = true;
 			jumping = true;
 		}
-		if (Input.GetKeyDown (KeyCode.J)) {
+		if (Input.GetKeyDown (shoot)) {
 			Quaternion rot = Quaternion.Euler(0,0,0);
 			if (transform.localScale.x < 0 ) {
 				rot = Quaternion.Euler(0,0,180);
