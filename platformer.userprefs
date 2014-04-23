@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Player\Shield.cs">
+    <Files>
+      <File FileName="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Enemy.cs" Line="26" Column="32" />
+      <File FileName="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Player\AutoLaser.cs" Line="12" Column="30" />
+      <File FileName="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Star.cs" Line="9" Column="33" />
+      <File FileName="..\..\..\Dropbox\ITP 280\Kyle San Lab 3 The Last Stand\last stand source(new)\Assets\Scripts\Player\Shield.cs" Line="77" Column="89" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
