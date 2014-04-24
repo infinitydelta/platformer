@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 	public int hp = 100;
+	public GameObject projectile;
 	public GameObject blood;
 	public GameObject bloodDeath;
 	bool moving, movingX, movingY, jumping;
@@ -50,6 +51,10 @@ public class Enemy : MonoBehaviour {
 			isDead = true;
 			death();
 		}
+	}
+
+	void ai() {
+
 	}
 	
 	void death() {

@@ -79,4 +79,10 @@ public class Player : MonoBehaviour {
 			Instantiate (projectile, gunTip.transform.position, rot); 
 		}
 	}
+
+	void OnCollisionEnter2D (Collision2D other) {
+		if (other.gameObject.CompareTag("enemy")) {
+			
+		}
+	}
 }
