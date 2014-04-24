@@ -16,10 +16,12 @@ public class Player : MonoBehaviour {
 	public string jump = "space";
 	public string jump2 = "w";
 	public string shoot = "j";
-	
+
+	Animator anim;
 	// Use this for initialization
 	void Start () {
 		speed = startSpeed;
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -70,13 +72,20 @@ public class Player : MonoBehaviour {
 			jumping = true;
 		}
 		if (Input.GetKeyDown (shoot)) {
+			anim.SetTrigger("Attack");
+			
+		}
+
+	}
+	public void fire()
+	{
 			Quaternion rot = Quaternion.Euler(0,0,0);
 			if (transform.localScale.x < 0 ) {
 				rot = Quaternion.Euler(0,0,180);
 				//print (rot.eulerAngles.z);
 			}
-		
+			
 			Instantiate (projectile, gunTip.transform.position, rot); 
-		}
+		
 	}
 }
