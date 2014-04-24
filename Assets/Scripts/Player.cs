@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
-	bool moving, movingX, movingY, jumping;
+	bool moving, movingX, movingY, jumping, attacking;
 
 	public int startSpeed = 7;
 	public int speed;
@@ -16,15 +16,18 @@ public class Player : MonoBehaviour {
 	public string jump = "space";
 	public string jump2 = "w";
 	public string shoot = "j";
-	
+
+	Animator anim;
 	// Use this for initialization
 	void Start () {
 		speed = startSpeed;
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		moving = (movingX || movingY);
+		anim.SetBool("moving", moving);
 
 		movingX = false;
 
@@ -52,6 +55,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void controls() {
+		if(attacking)
+		{
+			return;
+		}
 		if (Input.GetKey (left)) {
 			movingX = true;
 			transform.localScale = new Vector3(-1,1,1);
@@ -70,19 +77,25 @@ public class Player : MonoBehaviour {
 			jumping = true;
 		}
 		if (Input.GetKeyDown (shoot)) {
+			anim.SetTrigger("Attack");
+			attacking = true;
+			
+		}
+
+	}
+	public void fire()
+	{
 			Quaternion rot = Quaternion.Euler(0,0,0);
 			if (transform.localScale.x < 0 ) {
 				rot = Quaternion.Euler(0,0,180);
 				//print (rot.eulerAngles.z);
 			}
-		
-			Instantiate (projectile, gunTip.transform.position, rot); 
-		}
-	}
-
-	void OnCollisionEnter2D (Collision2D other) {
-		if (other.gameObject.CompareTag("enemy")) {
 			
-		}
+			Instantiate (projectile, gunTip.transform.position, rot); 
+		
+	}
+	public void attackingFalse()
+	{
+		attacking = false;
 	}
 }
