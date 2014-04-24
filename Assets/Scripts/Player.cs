@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
-	bool moving, movingX, movingY, jumping;
+	bool moving, movingX, movingY, jumping, attacking;
 
 	public int startSpeed = 7;
 	public int speed;
@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		moving = (movingX || movingY);
+		anim.SetBool("moving", moving);
 
 		movingX = false;
 
@@ -54,6 +55,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void controls() {
+		if(attacking)
+		{
+			return;
+		}
 		if (Input.GetKey (left)) {
 			movingX = true;
 			transform.localScale = new Vector3(-1,1,1);
@@ -73,6 +78,7 @@ public class Player : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (shoot)) {
 			anim.SetTrigger("Attack");
+			attacking = true;
 			
 		}
 
@@ -87,5 +93,9 @@ public class Player : MonoBehaviour {
 			
 			Instantiate (projectile, gunTip.transform.position, rot); 
 		
+	}
+	public void attackingFalse()
+	{
+		attacking = false;
 	}
 }
