@@ -8,18 +8,20 @@ public class CameraScript : MonoBehaviour {
 	public float yOffset = 2f;
 	
 	public float easeAmount = 10f;
-	private GameObject[] myPlayers;
+	public GameObject[] myPlayers;
 	
 	private Vector3 targetPosition;
 	private float targetSize;
 	// Use this for initialization
 	void Start () {
-		myPlayers = GameObject.FindGameObjectsWithTag ("Player");
+		//myPlayers = GameObject.FindGameObjectsWithTag ("Player");
 		//pos = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		myPlayers = GameObject.FindGameObjectsWithTag ("Player");
+		
 		//center on multiple players
 		float leftmostPos = myPlayers[0].transform.position.x;
 		float rightmostPos = myPlayers[0].transform.position.x;

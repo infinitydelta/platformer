@@ -17,6 +17,10 @@ public class Player : MonoBehaviour {
 	public string jump2 = "w";
 	public string shoot = "j";
 
+	float velX;
+	int startingAccel = 35;
+	int accel = 35;
+
 	Animator anim;
 	// Use this for initialization
 	void Start () {
@@ -31,21 +35,32 @@ public class Player : MonoBehaviour {
 
 		movingX = false;
 
+		
 		controls ();
+		limitSpeed();
+		
 		if (rigidbody2D.velocity.y == 0) {
 			movingY = false;
 		} else {
 			movingY = true;
 		}
-		/*
+		
+		//if jumping
 		if (movingY) {
-			speed = regularSpeed /2;
+			//velX = rigidbody2D.velocity.x; //transform.localScale.x * speed;//
+			
+		}
+		
+		
+		
+		if (movingY) {
+			accel = startingAccel /2;
 		}
 		else {
-			speed = regularSpeed;
-		} */
+			accel = startingAccel;
+		} 
 
-		if (!movingX) { //stop
+		if (!movingX && !movingY) { //stop
 			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x * stoppingFriction, rigidbody2D.velocity.y);
 		}
 		//rigidbody2D.AddForce (new Vector2 (0, -500));
@@ -59,23 +74,30 @@ public class Player : MonoBehaviour {
 		{
 			return;
 		}
-		if (Input.GetKey (left)) {
+		
+
+		
+		if (Input.GetKey (left) ) {
 			movingX = true;
 			transform.localScale = new Vector3(-1,1,1);
-			rigidbody2D.velocity = new Vector2(-speed, rigidbody2D.velocity.y);	
+			//rigidbody2D.velocity = new Vector2(-speed, rigidbody2D.velocity.y);	
+			rigidbody2D.AddForce(new Vector2(-accel, 0));
 		}
-		if (Input.GetKey (right)) {
+		if (Input.GetKey (right)  ) {
 			movingX = true;
 			transform.localScale = new Vector3(1,1,1);
-			rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);	
+			//rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);	
+			rigidbody2D.AddForce(new Vector2(accel, 0));
+			
 		}
 
 		if ((Input.GetKey(jump) || Input.GetKey(jump2))&& !movingY) {
-			//rigidbody2D.AddForce(new Vector2(0, 400));
-			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpStrength);
+			velX = rigidbody2D.velocity.x;
+			rigidbody2D.velocity = new Vector2(velX, jumpStrength);
 			movingY = true;
 			jumping = true;
 		}
+
 		if (Input.GetKeyDown (shoot)) {
 			anim.SetTrigger("Attack");
 			attacking = true;
@@ -83,6 +105,17 @@ public class Player : MonoBehaviour {
 		}
 
 	}
+	
+	void limitSpeed() {
+		if (rigidbody2D.velocity.x > speed) {
+			rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
+		}
+		
+		if (rigidbody2D.velocity.x < -speed) {
+			rigidbody2D.velocity = new Vector2(-speed, rigidbody2D.velocity.y);
+		}
+	}
+	
 	public void fire()
 	{
 			Quaternion rot = Quaternion.Euler(0,0,0);
@@ -94,8 +127,18 @@ public class Player : MonoBehaviour {
 			Instantiate (projectile, gunTip.transform.position, rot); 
 		
 	}
+	
+	
 	public void attackingFalse()
 	{
 		attacking = false;
+	}
+	
+	
+	void OnCollisionEnter2D (Collision2D other) {
+		if (other.gameObject.CompareTag("enemy")) {
+			int dir = (int)Mathf.Sign(transform.position.x - other.gameObject.transform.position.x);
+			rigidbody2D.velocity = new Vector2( dir * 5,5);
+		}
 	}
 }
