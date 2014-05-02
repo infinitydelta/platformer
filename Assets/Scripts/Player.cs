@@ -70,39 +70,37 @@ public class Player : MonoBehaviour {
 	}
 
 	void controls() {
-		if(attacking)
+		if(!attacking)
 		{
-			return;
+			if (Input.GetKey (left)) {
+				movingX = true;
+				transform.localScale = new Vector3(-1,1,1);
+				//rigidbody2D.velocity = new Vector2(-speed, rigidbody2D.velocity.y);	
+				rigidbody2D.AddForce(new Vector2(-accel, 0));
+			}
+			if (Input.GetKey (right)) {
+				movingX = true;
+				transform.localScale = new Vector3(1,1,1);
+				//rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);	
+				rigidbody2D.AddForce(new Vector2(accel, 0));
+				
+			}
+	
+			if ((Input.GetKey(jump) || Input.GetKey(jump2))&& !movingY) {
+				velX = rigidbody2D.velocity.x;
+				rigidbody2D.velocity = new Vector2(velX, jumpStrength);
+				movingY = true;
+				jumping = true;
+			}
+			if (Input.GetKeyDown (shoot)) {
+				anim.SetTrigger("Attack");
+				attacking = true;
+				
+			}
+		
 		}
 		
 
-		
-		if (Input.GetKey (left) ) {
-			movingX = true;
-			transform.localScale = new Vector3(-1,1,1);
-			//rigidbody2D.velocity = new Vector2(-speed, rigidbody2D.velocity.y);	
-			rigidbody2D.AddForce(new Vector2(-accel, 0));
-		}
-		if (Input.GetKey (right)  ) {
-			movingX = true;
-			transform.localScale = new Vector3(1,1,1);
-			//rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);	
-			rigidbody2D.AddForce(new Vector2(accel, 0));
-			
-		}
-
-		if ((Input.GetKey(jump) || Input.GetKey(jump2))&& !movingY) {
-			velX = rigidbody2D.velocity.x;
-			rigidbody2D.velocity = new Vector2(velX, jumpStrength);
-			movingY = true;
-			jumping = true;
-		}
-
-		if (Input.GetKeyDown (shoot)) {
-			anim.SetTrigger("Attack");
-			attacking = true;
-			
-		}
 
 	}
 	
@@ -118,6 +116,8 @@ public class Player : MonoBehaviour {
 	
 	public void fire()
 	{
+			Camera.main.GetComponent<CameraScript>().shake = .1f;
+	
 			Quaternion rot = Quaternion.Euler(0,0,0);
 			if (transform.localScale.x < 0 ) {
 				rot = Quaternion.Euler(0,0,180);

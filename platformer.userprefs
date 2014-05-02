@@ -1,9 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\colorful-zombie\Assets\Scripts\zombie.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.cs">
     <Files>
-      <File FileName="..\colorful-zombie\Assets\Scripts\zombie.cs" Line="37" Column="16" />
-      <File FileName="..\colorful-zombie\Assets\Scripts\CameraScript2.cs" Line="24" Column="48" />
+      <File FileName="Assets\Scripts\Enemy.cs" Line="8" Column="1" />
+      <File FileName="Assets\Scripts\CameraShake.cs" Line="28" Column="3" />
+      <File FileName="Assets\Scripts\CameraScript.cs" Line="50" Column="37" />
+      <File FileName="Assets\Scripts\Player.cs" Line="119" Column="57" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

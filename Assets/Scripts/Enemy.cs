@@ -5,7 +5,6 @@ public class Enemy : MonoBehaviour {
 	public int hp = 100;
 	public int speed = 3;
 	public int accel = 20;
-	public GameObject projectile;
 	public GameObject hit;
 	public GameObject bloodDeath;
 	public GameObject proj;
@@ -22,6 +21,7 @@ public class Enemy : MonoBehaviour {
 	float stoppingFriction = .85f;
 	bool isDead = false;
 	bool mover, movel;
+	int setdir = 0;
 	
 	bool ready = true;
 	
@@ -128,30 +128,68 @@ public class Enemy : MonoBehaviour {
 		movel = false;
 	}
 	
-	void move(int dist) {
+	void move(float dist) {
 		//actually travels a bit less than distanceTravelled due to acceleration
 		int dir = (int) Mathf.Sign (dist);
 		rigidbody2D.AddForce(new Vector2(dir * accel, 0));
 		distanceTravelled += speed * Time.deltaTime;
+		transform.localScale = new Vector3(dir, 1, 1);
 		movingX = true;
 	
 	}
 
 	void attack(GameObject target) {
 		float dist = Vector2.Distance (target.transform.position, transform.position);
-		if (dist < aggroDist) {
-			float dir = Mathf.Sign(target.transform.position.x- transform.position.x);
+		int dir = (int) Mathf.Sign(target.transform.position.x- transform.position.x);
+		
+		
+		if (dist < aggroDist) { //notice player
+		
+			//in range to attack
+			//fire
+			if (dist <= attackRange) {
+				fire (dir);
+			}
 			
-			if (dist <= attackRange && ready) { //&& not cd
+			if (dist <= attackRange * .5f) {
+				//try firing
+				//fire(dir);
+				
+				if (setdir == 0) {
+					setdir = (int) dir;
+				}
+				move (setdir);
+			}
+			else {
+				//too far, move towards player
+				move (dir);
+				setdir = 0;
+			}
+			/*
+			if (dist <= attackRange && ready) { //in attack range and can attack
 				fire ();
+				
 				//print ("in attack range");
-			}//in attack range)
-			else if (dist <= attackRange && ready == false){
+			}
+			//attack not ready, orbit player
+			else if (dist <= attackRange && !ready){
+				if (distanceTravelled < Mathf.Abs(dist*2)) {
+					move( dir );
+				}
+				//if (dir != olddir) {
+					
+				//}
+				
+				//else 
+				//int olddir
+				move (dir*attackRange);
+				print ("dist traveled: " + distanceTravelled);
+				//print ("not ready" + dist);
 				//moveRight(5);
 				//rigidbody2D.AddForce(new Vector2(-dir*accel, 0));
 				
 			}
-			
+			*/
 			// move past them
 //			else {
 //				rigidbody2D.AddForce(new Vector2(dir*accel, 0));
@@ -179,6 +217,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void idle() {
+		setdir = 0;
 		if (movedist ==0) {
 			movedist = Random.Range(-5, 5); //Random.Range(-3, -10);
 			print ("movedist: " + movedist);
@@ -218,13 +257,14 @@ public class Enemy : MonoBehaviour {
 	
 	}
 	
-	public void fire()
+	public void fire(int dir)
 	{
 		if (ready) {
+			transform.localScale = new Vector3(dir, 1, 1);
+		
 			Quaternion rot = Quaternion.Euler(0,0,0);
 			if (transform.localScale.x < 0 ) {
 				rot = Quaternion.Euler(0,0,180);
-				//print (rot.eulerAngles.z);
 			}
 			
 			Instantiate (proj, transform.position, rot); 
