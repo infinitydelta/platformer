@@ -46,15 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CameraScript.cs" />
-     <Compile Include="Assets\Scripts\CameraShake.cs" />
-     <Compile Include="Assets\Scripts\Delete.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
-     <Compile Include="Assets\Scripts\JumpPortal.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\Projectile.cs" />
-     <Compile Include="Assets\Scripts\RandomRotation.cs" />
+     <Compile Include="Assets\Resources\Scripts\CameraScript.cs" />
+     <Compile Include="Assets\Resources\Scripts\CameraShake.cs" />
+     <Compile Include="Assets\Resources\Scripts\Delete.cs" />
+     <Compile Include="Assets\Resources\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Resources\Scripts\EnemySpawner.cs" />
+     <Compile Include="Assets\Resources\Scripts\GUIText.cs" />
+     <Compile Include="Assets\Resources\Scripts\JumpPortal.cs" />
+     <Compile Include="Assets\Resources\Scripts\Player.cs" />
+     <Compile Include="Assets\Resources\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Resources\Scripts\RandomRotation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
