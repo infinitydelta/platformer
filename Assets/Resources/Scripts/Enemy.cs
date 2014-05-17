@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour {
 	void Update () {
 		findNearestPlayer();
 		
-		//moving
+		//
 		/*
 		if (movingX) {
 			//gotta move
@@ -103,7 +103,7 @@ public class Enemy : MonoBehaviour {
 		if (waiting) {
 			waitTime += Time.deltaTime;
 			if (waitTime >= waitTimer) {
-				print ("waittime: " + waitTime);
+				//print ("waittime: " + waitTime);
 				waiting = false;
 				distanceTravelled = 0;
 				waitTime = 0;
@@ -200,7 +200,7 @@ public class Enemy : MonoBehaviour {
 		setdir = 0;
 		if (movedist ==0) {
 			movedist = Random.Range(-5, 5); //Random.Range(-3, -10);
-			print ("movedist: " + movedist);
+			//print ("movedist: " + movedist);
 		}
 
 		//travelled the whole distance, now wait
@@ -216,7 +216,7 @@ public class Enemy : MonoBehaviour {
 		}
 		
 		if (!waiting) {
-			print ("moving");
+			//print ("moving");
 			move(movedist);
 			
 		}

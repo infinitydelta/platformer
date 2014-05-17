@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resources\Scripts\Ashe.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Resources\Scripts\Delete.cs" />
@@ -56,6 +57,11 @@
      <Compile Include="Assets\Resources\Scripts\Player.cs" />
      <Compile Include="Assets\Resources\Scripts\Projectile.cs" />
      <Compile Include="Assets\Resources\Scripts\RandomRotation.cs" />
+     <Compile Include="Assets\Resources\tile import\src\Layer.cs" />
+     <Compile Include="Assets\Resources\tile import\src\TileData.cs" />
+     <Compile Include="Assets\Resources\tile import\src\TileMap.cs" />
+     <Compile Include="Assets\Resources\tile import\src\TileSet.cs" />
+     <None Include="Assets\Resources\tile import\untitled.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

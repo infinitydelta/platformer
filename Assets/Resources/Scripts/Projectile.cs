@@ -49,8 +49,8 @@ public class Projectile : MonoBehaviour {
 	}
 	
 	void spawnGUI(string text, float x, float y) {
-		x = Mathf.Clamp(x, .05f, .95f);
-		y = Mathf.Clamp(y, .05f, .95f);
+		//x = Mathf.Clamp(x, .05f, .95f);
+		//y = Mathf.Clamp(y, .05f, .95f);
 		GameObject gui = (GameObject) Instantiate(damageGUI, new Vector3(x,y,0), Quaternion.identity);
 		gui.guiText.text = text;
 		

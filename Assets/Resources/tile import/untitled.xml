@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="grass-tiles 2 small" tilewidth="32" tileheight="32">
+  <image source="D:/Programming/ASSETS/tileset/grass-tiles-2-small.png" width="384" height="192"/>
+ </tileset>
+ <tileset firstgid="73" name="tree2-final" tilewidth="32" tileheight="32">
+  <image source="D:/Programming/ASSETS/tileset/tree2-final.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="137" name="tree2-final" tilewidth="256" tileheight="256">
+  <image source="D:/Programming/ASSETS/tileset/tree2-final.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="138" name="Collisions" tilewidth="32" tileheight="32">
+  <image source="D:/Programming/ASSETS/PolCPP-unitmx-2dfc2daa10bd/Example Assets/Collision.png" width="128" height="128"/>
+  <tile id="3">
+   <properties>
+    <property name="col" value="top"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="background" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2NtO20AQBuAlVZuClJ5SkGh6S1qpfYO+/3vhUXbkyQqEbFou6PdJIx/YINg/e7BbW+Ziqs1Ud73ietfvfejFv7EZKrP4OdXVVNupDv1+5LDrx5pRK0fWGXMY+zrzuG5zHmNmdbxcvOyf/6rsSm2G66jM42s7ZXJoc1aZRx0vec469Xte557s55yv9m2erx4aG/k5a8rzfJrq2E5r9bHUXTl+mer9VDdTfW7z2l7b1pLHOvGd/t5O/RyVfR5zU4yFq3592a+jrnu7bW+3L7XtP/v1kv/EK5FrRRzftTmD6O/s/zhGP9/0+2P/70uby/I75LHcuE7c9vrW67YcI6/o7xgvb0ubx8p8tVzN4rF1ue6vYh6KTA7tfG9V98abcs5ydU9bq+6zonKNiXmp7q/q58fnFpksV5+rx2fBeh7jI9eP2F8dh/rY5gzksF6OhTrP1PGReWUeud7nea7hf9r58yTrjO8Fc96pWcTxdzutH5FD7o1zbxtz2I92Ps5Yr46H8f1HHS/j3qvWm3b+joXnq+v3uGfKMZSZ1TW7jiXvEv+emsVT7bJN5gMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwP/jHstgEnU=
+  </data>
+ </layer>
+ <layer name="foreground" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzrENwCAQBMHv24YEQ91cDw4Q0oy0+VYBAAAAwH2e9KaW+uEXqkb60kzr8AsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8tQEtqwQF
+  </data>
+ </layer>
+ <layer name="top" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzjdWUAEARFG2h4AiQSQnlRwlN4QGlu1bACXyi3/vOa+ZaiYmAAD4nybrS03VdM3U1/pWswP+GqvvNVfztVCL9aOW6ueAv8ZquVZqtdZqvTZqs7aGuzVa27VTu/Wrftef2qv9AX+N1UEd1lEd10md1lmdD/hrrC7qsv7WVV3XTd3W3YC/xuq+Ht7ZH+vpc6+Q53p5Z3+tt0/+AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/lH6I5Fh0=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="100" height="100">
+  <object x="198" y="391" width="118" height="56"/>
+ </objectgroup>
+ <layer name="[C] collision_1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1LEJADAIAEH3B3dOY2llEUTu4Ff4CAAAAJjJih2yCeAX/wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCSB89WBhA=
+  </data>
+ </layer>
+</map>

@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{7DF86CE5-98AD-27B9-C81C-95E986E42321}</ProjectGuid>
+	<ProjectGuid>{87C6A668-E66D-9F1D-2B5F-834FB40BCA5D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,22 +46,30 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Resources\Scripts\Ashe.cs" />
-     <Compile Include="Assets\Resources\Scripts\CameraScript.cs" />
-     <Compile Include="Assets\Resources\Scripts\CameraShake.cs" />
-     <Compile Include="Assets\Resources\Scripts\Delete.cs" />
-     <Compile Include="Assets\Resources\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Resources\Scripts\EnemySpawner.cs" />
-     <Compile Include="Assets\Resources\Scripts\GUIText.cs" />
-     <Compile Include="Assets\Resources\Scripts\JumpPortal.cs" />
-     <Compile Include="Assets\Resources\Scripts\Player.cs" />
-     <Compile Include="Assets\Resources\Scripts\Projectile.cs" />
-     <Compile Include="Assets\Resources\Scripts\RandomRotation.cs" />
-     <Compile Include="Assets\Resources\tile import\src\Layer.cs" />
-     <Compile Include="Assets\Resources\tile import\src\TileData.cs" />
-     <Compile Include="Assets\Resources\tile import\src\TileMap.cs" />
-     <Compile Include="Assets\Resources\tile import\src\TileSet.cs" />
+     <Compile Include="Assets\Resources\tile import\src\Editor\TilemapInspector.cs" />
      <None Include="Assets\Resources\tile import\untitled.xml" />
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>D:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions">
+ <HintPath>D:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\iPhonePlayer\EditorExtensions\UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WP8.Extensions">
+ <HintPath>D:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\WP8Support\EditorExtensions\UnityEditor.WP8.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Metro.Extensions">
+ <HintPath>D:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\MetroSupport\EditorExtensions\UnityEditor.Metro.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.BB10.Extensions">
+ <HintPath>D:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\BB10Player\EditorExtensions\UnityEditor.BB10.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>D:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{7DF86CE5-98AD-27B9-C81C-95E986E42321}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -116,7 +116,7 @@ public class Player : MonoBehaviour {
 	
 	public void fire()
 	{
-			Camera.main.GetComponent<CameraScript>().shake = .1f;
+			Camera.main.GetComponent<CameraScript>().shake = .05f;
 	
 			Quaternion rot = Quaternion.Euler(0,0,0);
 			if (transform.localScale.x < 0 ) {
