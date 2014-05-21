@@ -17,7 +17,6 @@ public class GUIText : MonoBehaviour {
 	void Update () {
 		if (alpha > 0) {
 			transform.Translate(0, scroll*Time.deltaTime, 0);
-			//transform.position = new Vector3(transform.position.x, transform.position.y += scroll * Time.deltaTime, transform.position.z) ;
 			//transform.position.y += scroll * Time.deltaTime;
 			alpha -= Time.deltaTime/duration;
 			guiText.material.color = new Color(guiText.material.color.r, guiText.material.color.g, guiText.material.color.b, alpha);
